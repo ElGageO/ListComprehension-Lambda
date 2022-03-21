@@ -26,7 +26,7 @@ for i in original_list:
 
 #There are 3 parts to list comprehension:
 
-#*result*  = [*transform/expression*    *iteration*         *filter*     ]
+#*result*  = [*transformation/expression*    *iteration*         *filter*     ]
 
 #The filter part answers the question if the item should be transformed.
 
@@ -39,8 +39,8 @@ for i in original_list:
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
-
-
+newlist = [ num for num in numbers if num > 0]
+print(newlist)
 
 ## 2 create a list of integers which specify the length of each word in
 ## a sentence except for the word 'the'
@@ -48,6 +48,8 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
 
+length = [ len(word) for word in words if word != 'the']
+print(length)
 
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
@@ -57,24 +59,22 @@ words = sentence.split()
 dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400, 
 "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
 
-
-
+below5000 = [ x.upper() for x in dict if dict[x] < 5000 ]
+print(below5000)
 
 ## Find all the numbers from 1 to 1000 that have a 4 in them
 
-
+with4 = [ x for x in range(1001) if '4' in str(x)]
+print(with4)
 
 ## count how many times the word 'the' appears in the text file - 'sometext.txt'
-
-
+sometext = open('sometext.txt', 'r').read().split()
+counter = len([ x for x in sometext if x.lower() == 'the' ])
+print(counter)
 
 ## Extract the numbers from the following phrase ##
 
-phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " +
-"event, with about 3 or 4 that were classifled as serious per event.'
+phrase = 'In 1984 there were 13 instances of a protest with over 1000 people attending. On average there were 15 reported injuries at each " + "event, with about 3 or 4 that were classifled as serious per event.'
 
-
-
-
-
-
+nums = [ x for x in phrase.split() if x.isdigit() ]
+print(nums)
