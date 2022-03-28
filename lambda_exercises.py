@@ -7,6 +7,9 @@ Even numbers from the said list:
 Odd numbers from the said list:
 [1, 3, 5, 7, 9]
 '''
+from asyncio import format_helpers
+
+
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 evens = list(filter(lambda x: x % 2 == 0, nums))
@@ -91,8 +94,38 @@ check whether a given string contains a capital letter, a lower case letter, a n
 (This is like a password verification function, HINT: Python function 'any' may be useful)
 '''
 
+#password = input('Please enter a password: ')
 password = 'Abcdefg1'
 password_list = list(password)
+
+verified_list = []
+upper = False
+lower = False
+number = False
+length = False
+for char in password_list:
+    if char.isupper():
+        upper = True
+    elif char.islower():
+        lower = True
+    elif char.isdigit():
+        number = True
+    
+    if len(password_list) >= 8:
+        length = True
+
+verified_list.append(upper)
+verified_list.append(lower)
+verified_list.append(number)
+verified_list.append(length)
+
+verification = lambda x: all(x)
+password_check = verification(verified_list)
+
+if password_check:
+    print('Password verified')
+else:
+    print('Password does not meet requirements')
 
 
 ''' 7)
@@ -104,3 +137,4 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # Expected Result:
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 '''
+
