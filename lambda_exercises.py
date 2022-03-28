@@ -138,3 +138,7 @@ original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sci
 # [('Social sciences', 82), ('English', 88), ('Science', 90), ('Maths', 97)]
 '''
 
+original_scores = [('English', 88), ('Science', 90), ('Maths', 97), ('Social sciences', 82)]
+original_scores.sort(key = lambda x: x[1])
+
+print(original_scores)
