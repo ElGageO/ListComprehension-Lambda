@@ -98,35 +98,13 @@ check whether a given string contains a capital letter, a lower case letter, a n
 password = 'Abcdefg1'
 password_list = list(password)
 
-verified_list = []
-upper = False
-lower = False
-number = False
-length = False
-for char in password_list:
-    if char.isupper():
-        upper = True
-    elif char.islower():
-        lower = True
-    elif char.isdigit():
-        number = True
-    
-    if len(password_list) >= 8:
-        length = True
-
-verified_list.append(upper)
-verified_list.append(lower)
-verified_list.append(number)
-verified_list.append(length)
-
-verification = lambda x: all(x)
-password_check = verification(verified_list)
-
-if password_check:
-    print('Password verified')
+verification = lambda password: (any(char.islower() for char in password) and (char.isupper() for char in password) and (char.isdigit() for char in password) and len(password) >= 8)
+if verification(password):
+    print('The password is valid')
 else:
-    print('Password does not meet requirements')
+    print('The password does not meet the requirements')
 
+# I spared you the expense of having to look at my 30-line monstrosity
 
 ''' 7)
 Write a Python program to sort a list of tuples using Lambda.
